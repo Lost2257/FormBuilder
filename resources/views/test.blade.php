@@ -2,25 +2,30 @@
 
 @section('content')
     <div class="container">
-        @foreach($cars as $car)
-        <table class="table table-dark">
+    <table id="lentele" class="table table-dark table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">MarkesId</th>
-      <th scope="col">Metai</th>
-      <th scope="col">Savininko vardas</th>
+      <th scope="col">@sortablelink('Marke')</th>
+      <th scope="col">@sortablelink('Gamybos_metai')</th>
+      <th scope="col">@sortablelink('Savininko_vardas')</th>
     </tr>
   </thead>
+        @foreach($cars as $car)
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">#</th>
       <td>{{ $car->Marke }}</td>
       <td>{{ $car->Gamybos_metai }}</td>
       <td>{{ $car->Savininko_vardas }}</td>
     </tr>
   </tbody>
-</table>
+
         @endforeach
+</div>
+        </table>
+        {!! $cars->appends(\Request::except('page'))->render() !!}
+
+            <a class="btn btn-success" href="/cars/create">Prideti masina</a>
     </div>
 @endsection

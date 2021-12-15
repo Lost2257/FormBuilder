@@ -10,12 +10,15 @@ use App\Car;
 class CarController extends Controller
 {
 
-    public function index()
+    public function index(Car $car)
     {
-        $cars = Car::all()
-        ->sortBy('Marke');
-        return view('test',['cars'=>$cars]);
+        $cars = $car->sortable()->paginate(10);
+        return view('test',compact('cars'));
+    }
 
+    public function sortBy($columnName)
+    {
+        dd('here');
     }
 
     public function __construct(FormBuilder $formBuilder)

@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Forms;
-
-
+use App\Rules\MinWordsRule;
 class CarForm extends Form
 {
     public function buildForm()
@@ -20,9 +19,13 @@ class CarForm extends Form
             ])
             ->add('Gamybos_metai', 'number', [
                 'label' => 'Metai',
-                'rules' => 'required|' 
+                'rules' => 'required|gt:1899|lt:2022' 
             ])
-            ->add('Savininko_vardas','text');
+            ->add('Savininko_vardas','text', [
+                'label' => 'Savininko vardas ir pavarde',
+                'rules' => [new MinWordsRule(),]
+            ]);
+            
 
             $this->add('submit', 'submit', [
                 'label' => 'Saugot'

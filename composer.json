@@ -13,8 +13,10 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "kris/laravel-form-builder": "^1.6",
+        "kyslik/column-sortable": "^6.4",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "livewire/livewire": "^2.8"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
