@@ -16,10 +16,6 @@ class CarController extends Controller
         return view('test',compact('cars'));
     }
 
-    public function sortBy($columnName)
-    {
-        dd('here');
-    }
 
     public function __construct(FormBuilder $formBuilder)
     {
@@ -39,9 +35,6 @@ class CarController extends Controller
         $form->redirectIfNotValid();
         $form->getModel()->save();
         return redirect()->route('cars.index');
-        // if (!$form->isValid()) {
-        //     return redirect()->back()->withErrors($form->getErrors())->withInput();
-        // }
     }
 
     public function getForm(?Car $car = null)
